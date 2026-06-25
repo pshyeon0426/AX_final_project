@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"from src.source_manifest import write_manifest; write_manifest\\(\\)\")",
+      "Bash(python -m src.collect_reviews)",
+      "Bash(python -c ' *)",
+      "Bash(python -m src.preprocess)",
+      "Bash(awk '/감성 분류 개선 모델 리포트/{p=1} p' outputs/model_report.md)",
+      "Bash(python -m src.topic_modeling --k 10)",
+      "Bash(python -m src.topic_modeling)",
+      "Bash(python -m src.benchmark)",
+      "Bash(sed 's/[^[:print:][:space:]가-힣]//g')",
+      "Bash(python -c \"from src.config import settings; print\\('openai_enabled:', settings.openai_enabled\\)\")",
+      "Bash(python -m src.report_generator)",
+      "Bash(python -m src.reply_generator)",
+      "Bash(python -m pytest tests/test_reply_generator.py -q)",
+      "Bash(python -m src.reply_eval)",
+      "Bash(python -m pytest -q)",
+      "Bash(python -m src.pipeline)",
+      "Bash(netstat -ano)",
+      "Bash(awk '{print $NF}')",
+      "Bash(powershell.exe -NoProfile -Command 'Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like '\\\\''*streamlit*'\\\\'' } | Select-Object ProcessId,CommandLine | Format-List')",
+      "Bash(python -m streamlit run app.py --server.headless true --server.port 8501 --browser.gatherUsageStats false)",
+      "Bash(python -m streamlit run app.py --server.port 8501 --browser.gatherUsageStats false)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8501/)",
+      "Bash(xargs echo \"py 파일 수:\")"
+    ]
+  }
+}

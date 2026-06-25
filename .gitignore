@@ -1,0 +1,43 @@
+# ===== 비밀 / 환경 =====
+.env
+.env.*
+!.env.example
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+# ===== 데이터 / 산출물 (원본·대용량은 버전관리 제외) =====
+data/raw/*
+data/processed/*
+models/*
+outputs/*
+!**/.gitkeep
+
+# ===== 벡터 DB / RAG 임시 파일 (ChromaDB) =====
+chroma_db/*
+!chroma_db/.gitkeep
+*.sqlite3
+*.parquet
+*.bin
+
+# ===== 대용량 캐시 / 모델 캐시 =====
+.cache/
+**/.cache/
+*.pkl
+*.joblib
+*.npy
+*.npz
+.streamlit/secrets.toml
+
+# ===== OS / 에디터 =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

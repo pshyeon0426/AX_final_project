@@ -1,0 +1,11 @@
+# Streamlit 테마 — 차분하고 깔끔한 라이트 테마
+# 기본 primary(빨강)를 절제된 블루로 교체해 버튼/위젯 강조색을 통일한다.
+[theme]
+primaryColor = "#2F6FE0"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F5F7FA"
+textColor = "#1F2733"
+font = "sans serif"
+
+[server]
+headless = true

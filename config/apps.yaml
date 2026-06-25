@@ -1,0 +1,41 @@
+# ============================================================
+# 리뷰 수집 대상 앱 레지스트리 (apps.yaml)
+# ------------------------------------------------------------
+# - UI(데이터 수집 탭)에서 추가/수정/삭제하면 이 파일이 갱신된다.
+# - google_play: Google Play 패키지명 / app_store: App Store 숫자 ID
+# - ID 가 비어 있으면 해당 스토어 수집은 건너뛴다.
+# - 실제 고객정보/키는 포함하지 않는다(공개 스토어 식별자만).
+# ============================================================
+
+our_app: 슈퍼SOL
+
+apps:
+  - name: 슈퍼SOL
+    google_play: com.shinhan.sbanking
+    app_store: "357484932"
+    is_our_app: true
+  - name: KB스타뱅킹
+    google_play: com.kbstar.kbbank
+    app_store: "373742138"
+    is_our_app: false
+  - name: 우리WON뱅킹
+    google_play: com.wooribank.smart.npib
+    app_store: "1470181651"
+    is_our_app: false
+  - name: 하나원큐
+    google_play: com.hanabank.oqf
+    app_store: "6743190232"
+    is_our_app: false
+  - name: 카카오뱅크
+    google_play: com.kakaobank.channel
+    app_store: "1258016944"
+    is_our_app: false
+  - name: 토스
+    google_play: viva.republica.toss
+    app_store: "839333328"
+    is_our_app: false
+
+# 수집 기본 설정 (UI '기본 세팅으로 진행' 시 사용)
+defaults:
+  stores: [google_play, app_store]   # 수집 스토어
+  n_per_store: 300                   # 앱·스토어당 최대 리뷰 수 (App Store RSS 는 ~상한 있음)

@@ -1,0 +1,33 @@
+# ===== 슈퍼SOL 고객 반응·경쟁 앱 벤치마킹·리뷰 답글 자동 생성 서비스 =====
+# Python 3.10+ 기준
+# 설치: pip install -r requirements.txt
+
+# --- 데이터 처리 / 분석 ---
+pandas>=2.2,<3.0
+numpy>=1.26,<2.0
+scikit-learn>=1.4,<2.0
+joblib>=1.3            # 모델 직렬화(sentiment_model.pkl 등)
+
+# --- 시각화 / 대시보드 ---
+streamlit>=1.33
+plotly>=5.20
+
+# --- 데이터 수집 (크롤링 / 리뷰 스크래핑) ---
+beautifulsoup4>=4.12
+google-play-scraper>=1.2.6
+requests>=2.32           # App Store 공개 iTunes RSS 리뷰 피드 수집
+# app-store-scraper>=0.3.5  # Python 3.13 비호환(requests==2.23 강제) → iTunes RSS 방식으로 대체
+
+# --- 한국어 형태소 분석 (설치 실패 시 공백 토큰화로 fallback) ---
+kiwipiepy>=0.17
+
+# --- 임베딩 / LLM / RAG ---
+sentence-transformers>=2.6
+langchain>=0.2
+chromadb>=0.5
+openai>=1.30           # 리뷰 답글 자동 생성 (OPENAI_API_KEY 필요)
+
+# --- 설정 / 환경 / 테스트 ---
+pyyaml>=6.0            # config/reply_policy.yaml 등 정책 파일 로딩
+python-dotenv>=1.0
+pytest>=8.0
