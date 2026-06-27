@@ -1050,9 +1050,13 @@ def main():
         st.toast("완료 ✅")
 
     # 수집 미리보기 / 수동 입력 모달 (세션 플래그로 제어)
-    if st.session_state.get("show_preview") and st.session_state.get("collected_df") is not None:
+    # 플래그를 '열 때 즉시 소비(pop)'한다. st.dialog 는 열린 뒤 내부 위젯 rerun 동안
+    # Streamlit 이 자동으로 열린 상태를 유지하므로, 매 rerun 마다 재호출하면 안 된다.
+    # (sticky 플래그로 두면 ✕/바깥클릭/ESC 네이티브 닫기 후에도 플래그가 True 로 남아
+    #  다른 조작 때마다 모달이 다시 열리는 버그가 발생한다.)
+    if st.session_state.pop("show_preview", False) and st.session_state.get("collected_df") is not None:
         collection_preview_dialog()
-    if st.session_state.get("show_manual"):
+    if st.session_state.pop("show_manual", False):
         manual_registry_dialog()
 
     # 데이터가 없으면 안내 (수집은 사이드바 '1 · 데이터 소스' 에서)
